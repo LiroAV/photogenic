@@ -145,6 +145,10 @@ function wireEvents() {
     localStorage.setItem(CHALLENGE_KEY, String(offset));
     renderChallenge();
   });
+
+  window.addEventListener("resize", () => {
+    renderSpread();
+  });
 }
 
 function loadState() {
@@ -255,9 +259,10 @@ function renderSpread() {
   const album = getActiveAlbum();
   if (!album) return;
 
-  const maxSpread = Math.max(0, Math.ceil(album.photos.length / 2) - 1);
+  const photosPerSpread = getPhotosPerSpread();
+  const maxSpread = Math.max(0, Math.ceil(album.photos.length / photosPerSpread) - 1);
   spreadIndex = Math.min(spreadIndex, maxSpread);
-  const visible = album.photos.slice(spreadIndex * 2, spreadIndex * 2 + 2);
+  const visible = album.photos.slice(spreadIndex * photosPerSpread, spreadIndex * photosPerSpread + photosPerSpread);
   elements.bookSpread.innerHTML = "";
 
   if (!visible.length) {
@@ -294,7 +299,7 @@ function turnPage(direction) {
   const album = getActiveAlbum();
   if (!album) return;
 
-  const maxSpread = Math.max(0, Math.ceil(album.photos.length / 2) - 1);
+  const maxSpread = Math.max(0, Math.ceil(album.photos.length / getPhotosPerSpread()) - 1);
   const nextIndex = Math.max(0, Math.min(maxSpread, spreadIndex + direction));
   if (nextIndex === spreadIndex) return;
 
@@ -356,6 +361,10 @@ function fileToResizedDataUrl(file) {
 
 function getActiveAlbum() {
   return state.albums.find((album) => album.id === activeAlbumId) ?? state.albums[0];
+}
+
+function getPhotosPerSpread() {
+  return window.matchMedia("(max-width: 640px)").matches ? 1 : 2;
 }
 
 function photoCountLabel(count) {
