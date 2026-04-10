@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3d6659" />
+    <title>Photogenic</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#albums" aria-label="Photogenic home">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>Photogenic</span>
+        </a>
+
+        <div class="challenge-strip" aria-live="polite">
+          <span class="eyebrow">Today</span>
+          <strong id="dailyChallenge">Find a soft reflection.</strong>
+          <button class="text-button" id="refreshChallenge" type="button">New twist</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="workspace" aria-label="Photo albums">
+          <aside class="album-rail" id="albums">
+            <div class="rail-heading">
+              <div>
+                <p class="eyebrow">Albums</p>
+                <h1>Pick a cover.</h1>
+              </div>
+              <button class="icon-button" id="showAlbumForm" type="button" aria-label="Create album">+</button>
+            </div>
+
+            <form class="album-form hidden" id="albumForm">
+              <label>
+                Name
+                <input id="albumName" name="albumName" type="text" maxlength="28" placeholder="Coffee walks" autocomplete="off" required />
+              </label>
+              <label>
+                Cover color
+                <input id="albumColor" name="albumColor" type="color" value="#d66f6f" />
+              </label>
+              <button class="primary-button" type="submit">Make album</button>
+            </form>
+
+            <div class="album-list" id="albumList"></div>
+          </aside>
+
+          <section class="album-area" aria-label="Selected album">
+            <div class="album-toolbar">
+              <div>
+                <p class="eyebrow" id="albumMeta">3 moments</p>
+                <h2 id="albumTitle">Friends</h2>
+              </div>
+              <div class="toolbar-actions">
+                <label class="primary-button file-action">
+                  Take photo
+                  <input id="cameraInput" type="file" accept="image/*" capture="environment" />
+                </label>
+                <label class="secondary-button file-action">
+                  Upload
+                  <input id="uploadInput" type="file" accept="image/*" />
+                </label>
+              </div>
+            </div>
+
+            <div class="book-stage">
+              <article class="photo-book" id="photoBook" aria-live="polite">
+                <div class="book-cover" id="bookCover">
+                  <div class="cover-band"></div>
+                  <p class="eyebrow">Open album</p>
+                  <h3 id="coverTitle">Friends</h3>
+                  <span id="coverCount">3 photos</span>
+                </div>
+
+                <div class="book-pages">
+                  <button class="page-turn prev-page" id="prevPage" type="button" aria-label="Previous page">‹</button>
+                  <div class="book-spread" id="bookSpread"></div>
+                  <button class="page-turn next-page" id="nextPage" type="button" aria-label="Next page">›</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="album-controls">
+              <button class="secondary-button" id="toggleBook" type="button">Open album</button>
+              <label class="color-control">
+                Cover
+                <input id="activeAlbumColor" type="color" />
+              </label>
+              <button class="danger-button" id="deleteAlbum" type="button">Remove album</button>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="photoTemplate">
+      <figure class="photo-card">
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

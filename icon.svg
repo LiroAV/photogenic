@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Photogenic icon">
+  <rect width="512" height="512" rx="88" fill="#3d6659"/>
+  <path d="M124 104h238c34 0 62 28 62 62v242H186c-34 0-62-28-62-62V104Z" fill="#fbfcff"/>
+  <path d="M154 134h202c22 0 40 18 40 40v204H194c-22 0-40-18-40-40V134Z" fill="#d66f6f"/>
+  <path d="M196 160h158v188H196z" fill="#fbfcff"/>
+  <circle cx="276" cy="228" r="42" fill="#87a9cf"/>
+  <path d="M210 316c31-44 55-53 82-24 13 13 26 16 48-4l28 60H196l14-32Z" fill="#6f9a86"/>
+  <path d="M124 104h46v304h-46z" fill="#26312e" opacity=".28"/>
+</svg>

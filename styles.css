@@ -1,0 +1,655 @@
+:root {
+  color-scheme: light;
+  --paper: #fbfcff;
+  --paper-shadow: #d9e0e3;
+  --ink: #26312e;
+  --muted: #6b746d;
+  --line: #d7ddd3;
+  --sage: #6f9a86;
+  --rose: #d66f6f;
+  --sky: #87a9cf;
+  --lemon: #e5c84f;
+  --lavender: #b4a4cc;
+  --danger: #ae3f3f;
+  --surface: rgba(251, 252, 255, 0.86);
+  --shadow: 0 26px 70px rgba(38, 49, 46, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background:
+    linear-gradient(145deg, rgba(111, 154, 134, 0.32), transparent 34%),
+    linear-gradient(25deg, rgba(214, 111, 111, 0.22), transparent 36%),
+    linear-gradient(320deg, rgba(135, 169, 207, 0.3), transparent 42%),
+    #f3f7f4;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.app-shell {
+  width: min(1220px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 18px 0 26px;
+}
+
+.topbar,
+.workspace,
+.album-toolbar,
+.album-controls,
+.challenge-strip,
+.rail-heading,
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.topbar {
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 0 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 850;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--lemon);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.challenge-strip {
+  min-width: min(560px, 100%);
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px solid rgba(38, 49, 46, 0.16);
+  border-radius: 8px;
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+}
+
+#dailyChallenge {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.workspace {
+  align-items: stretch;
+  gap: 18px;
+}
+
+.album-rail {
+  width: min(330px, 100%);
+  padding: 18px;
+  border: 1px solid rgba(38, 49, 46, 0.16);
+  border-radius: 8px;
+  background: rgba(251, 252, 255, 0.78);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.rail-heading {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin-top: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 7vw, 4.6rem);
+  overflow-wrap: anywhere;
+}
+
+.album-form {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+  padding: 14px;
+  border: 1px dashed rgba(38, 49, 46, 0.28);
+  border-radius: 8px;
+  background: rgba(251, 252, 255, 0.76);
+}
+
+.album-form label,
+.color-control {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.album-form input[type="text"] {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+input[type="color"] {
+  width: 54px;
+  height: 40px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+.album-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.album-tile {
+  position: relative;
+  display: grid;
+  min-height: 94px;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 16px 14px 74px;
+  border: 1px solid rgba(38, 49, 46, 0.18);
+  border-radius: 8px;
+  color: var(--ink);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 24px rgba(38, 49, 46, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.album-tile::before {
+  content: "";
+  position: absolute;
+  inset: 12px auto 12px 14px;
+  width: 42px;
+  border-radius: 7px;
+  background: var(--album-color, var(--rose));
+  box-shadow: 5px 0 0 rgba(38, 49, 46, 0.18);
+}
+
+.album-tile strong {
+  font-size: 1.04rem;
+  overflow-wrap: anywhere;
+}
+
+.album-tile span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.album-tile:hover,
+.album-tile.active {
+  transform: translateY(-2px);
+  border-color: rgba(38, 49, 46, 0.44);
+  box-shadow: 0 14px 30px rgba(38, 49, 46, 0.14);
+}
+
+.album-area {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto minmax(520px, 1fr) auto;
+  gap: 16px;
+}
+
+.album-toolbar {
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 4px 4px 0;
+}
+
+.toolbar-actions,
+.album-controls {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.book-stage {
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+  perspective: 1800px;
+}
+
+.photo-book {
+  --cover-color: var(--rose);
+  position: relative;
+  width: min(760px, 100%);
+  min-height: min(580px, 72vh);
+  transform-style: preserve-3d;
+}
+
+.book-cover,
+.book-pages {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.book-cover {
+  z-index: 3;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: clamp(24px, 8vw, 70px);
+  color: #1f2b28;
+  background:
+    linear-gradient(90deg, rgba(38, 49, 46, 0.22), transparent 8%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 36%),
+    var(--cover-color);
+  border: 2px solid rgba(38, 49, 46, 0.72);
+  box-shadow: 0 34px 70px rgba(38, 49, 46, 0.2), inset 18px 0 0 rgba(38, 49, 46, 0.14);
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  transition: transform 760ms cubic-bezier(0.2, 0.8, 0.24, 1), box-shadow 760ms ease;
+}
+
+.book-cover h3 {
+  max-width: 10ch;
+}
+
+.book-cover span {
+  align-self: end;
+  justify-self: start;
+  padding: 8px 12px;
+  border: 1px solid rgba(38, 49, 46, 0.32);
+  border-radius: 8px;
+  background: rgba(251, 252, 255, 0.54);
+  font-weight: 800;
+}
+
+.cover-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 58px;
+  width: 12px;
+  background: rgba(251, 252, 255, 0.34);
+}
+
+.book-pages {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(12px, 2vw, 20px);
+  background:
+    linear-gradient(90deg, transparent 49.5%, rgba(38, 49, 46, 0.18) 50%, transparent 50.8%),
+    var(--paper);
+  border: 2px solid rgba(38, 49, 46, 0.52);
+  box-shadow: 0 30px 80px rgba(38, 49, 46, 0.18), inset 0 0 34px var(--paper-shadow);
+}
+
+.photo-book.open .book-cover {
+  transform: rotateY(-118deg);
+  box-shadow: -26px 22px 60px rgba(38, 49, 46, 0.18), inset 18px 0 0 rgba(38, 49, 46, 0.14);
+  pointer-events: none;
+}
+
+.book-spread {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 4vw, 42px);
+  align-items: center;
+  min-height: 100%;
+  padding: clamp(14px, 3vw, 34px);
+  transition: transform 340ms ease, opacity 340ms ease;
+}
+
+.book-spread.turning {
+  opacity: 0;
+  transform: rotateY(-12deg) translateX(16px);
+}
+
+.book-spread.turning::after {
+  content: "";
+  position: absolute;
+  inset: 18px 50% 18px 18px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(217, 224, 227, 0.82));
+  box-shadow: 18px 0 28px rgba(38, 49, 46, 0.18);
+  transform-origin: right center;
+  animation: pageFlip 360ms ease both;
+}
+
+@keyframes pageFlip {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(-108deg);
+  }
+}
+
+.photo-card {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 280px);
+  margin: 0;
+  padding: 10px 10px 46px;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(38, 49, 46, 0.18);
+  transform: rotate(var(--tilt, -2deg));
+}
+
+.photo-card:nth-child(even) {
+  --tilt: 2deg;
+  margin-top: 42px;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--line);
+}
+
+.photo-card figcaption {
+  min-height: 24px;
+  margin-top: 12px;
+  color: #4a514c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.empty-page {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 360px;
+  padding: 28px;
+  border: 1px dashed rgba(38, 49, 46, 0.28);
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.empty-page p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.page-turn,
+.icon-button,
+.primary-button,
+.secondary-button,
+.danger-button,
+.text-button {
+  min-height: 42px;
+  border-radius: 8px;
+  border: 1px solid rgba(38, 49, 46, 0.24);
+  font-weight: 850;
+}
+
+.page-turn,
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  padding: 0;
+  color: var(--ink);
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(38, 49, 46, 0.12);
+}
+
+.page-turn {
+  position: relative;
+  z-index: 2;
+  font-size: 2rem;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 96px;
+  padding: 10px 14px;
+}
+
+.primary-button {
+  color: #ffffff;
+  border-color: #2d4c43;
+  background: #3d6659;
+}
+
+.secondary-button {
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.danger-button {
+  color: #ffffff;
+  border-color: #842e2e;
+  background: var(--danger);
+}
+
+.text-button {
+  min-width: auto;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.file-action input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.album-controls {
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.color-control {
+  grid-auto-flow: column;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid rgba(38, 49, 46, 0.18);
+  border-radius: 8px;
+  background: rgba(251, 252, 255, 0.68);
+}
+
+@media (max-width: 900px) {
+  .topbar,
+  .workspace {
+    display: grid;
+  }
+
+  .challenge-strip {
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .album-rail {
+    width: 100%;
+  }
+
+  .album-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow-x: auto;
+  }
+
+  .album-tile {
+    min-width: 180px;
+  }
+
+  .album-area {
+    grid-template-rows: auto minmax(470px, auto) auto;
+  }
+
+  .book-stage {
+    min-height: 470px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 18px, 520px);
+    padding-top: 8px;
+  }
+
+  .challenge-strip {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .challenge-strip .text-button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  #dailyChallenge {
+    line-height: 1.35;
+    max-width: 24ch;
+    white-space: normal;
+  }
+
+  .album-rail {
+    padding: 14px;
+  }
+
+  .album-list {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(178px, 72%);
+  }
+
+  .album-toolbar {
+    padding: 0;
+  }
+
+  .toolbar-actions,
+  .toolbar-actions label,
+  .album-controls,
+  .album-controls button {
+    width: 100%;
+  }
+
+  .photo-book {
+    min-height: 470px;
+  }
+
+  .book-cover {
+    transform-origin: top center;
+  }
+
+  .photo-book.open .book-cover {
+    transform: rotateX(76deg) translateY(-28px);
+  }
+
+  .book-pages {
+    grid-template-columns: 44px 1fr 44px;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .book-spread {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px 4px;
+  }
+
+  .photo-card {
+    width: min(100%, 210px);
+    padding-bottom: 38px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
