@@ -1,18 +1,19 @@
 :root {
   color-scheme: light;
-  --paper: #fbfcff;
-  --paper-shadow: #d9e0e3;
-  --ink: #26312e;
-  --muted: #6b746d;
-  --line: #d7ddd3;
-  --sage: #6f9a86;
-  --rose: #d66f6f;
-  --sky: #87a9cf;
-  --lemon: #e5c84f;
-  --lavender: #b4a4cc;
-  --danger: #ae3f3f;
-  --surface: rgba(251, 252, 255, 0.86);
-  --shadow: 0 26px 70px rgba(38, 49, 46, 0.16);
+  --paper: #f2f4f0;
+  --paper-shadow: #cfd6cf;
+  --ink: #252420;
+  --muted: #687069;
+  --line: #c8d1ca;
+  --sage: #627e70;
+  --rose: #9c615e;
+  --sky: #677f99;
+  --lemon: #b99c54;
+  --lavender: #7b728b;
+  --danger: #9a4641;
+  --surface: rgba(246, 248, 245, 0.88);
+  --shadow: 0 22px 60px rgba(37, 36, 32, 0.14);
+  --radius: 6px;
 }
 
 * {
@@ -28,10 +29,10 @@ body {
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   background:
-    linear-gradient(145deg, rgba(111, 154, 134, 0.32), transparent 34%),
-    linear-gradient(25deg, rgba(214, 111, 111, 0.22), transparent 36%),
-    linear-gradient(320deg, rgba(135, 169, 207, 0.3), transparent 42%),
-    #f3f7f4;
+    linear-gradient(135deg, rgba(98, 126, 112, 0.2), transparent 30%),
+    linear-gradient(28deg, rgba(103, 127, 153, 0.14), transparent 34%),
+    repeating-linear-gradient(0deg, rgba(37, 36, 32, 0.025) 0, rgba(37, 36, 32, 0.025) 1px, transparent 1px, transparent 4px),
+    #e9eeeb;
 }
 
 button,
@@ -77,7 +78,7 @@ img {
   gap: 10px;
   color: inherit;
   text-decoration: none;
-  font-weight: 850;
+  font-weight: 780;
   font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
@@ -86,10 +87,13 @@ img {
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 2px solid var(--ink);
-  border-radius: 8px;
-  background: var(--lemon);
-  box-shadow: 4px 4px 0 var(--ink);
+  border: 1px solid rgba(37, 36, 32, 0.28);
+  border-radius: var(--radius);
+  color: #f2f4f0;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 44%),
+    #3c4a42;
+  box-shadow: 0 10px 24px rgba(37, 36, 32, 0.14);
 }
 
 .challenge-strip {
@@ -98,10 +102,11 @@ img {
   gap: 12px;
   flex-wrap: wrap;
   padding: 10px 12px;
-  border: 1px solid rgba(38, 49, 46, 0.16);
-  border-radius: 8px;
+  border: 1px solid rgba(37, 36, 32, 0.12);
+  border-radius: var(--radius);
   background: var(--surface);
-  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 36px rgba(37, 36, 32, 0.08);
+  backdrop-filter: blur(18px);
 }
 
 #dailyChallenge {
@@ -112,8 +117,8 @@ img {
 .eyebrow {
   margin: 0;
   color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.68rem;
+  font-weight: 760;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -126,9 +131,11 @@ img {
 .album-rail {
   width: min(330px, 100%);
   padding: 18px;
-  border: 1px solid rgba(38, 49, 46, 0.16);
-  border-radius: 8px;
-  background: rgba(251, 252, 255, 0.78);
+  border: 1px solid rgba(37, 36, 32, 0.12);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.1)),
+    rgba(246, 248, 245, 0.82);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
 }
@@ -148,21 +155,25 @@ h3 {
 
 h1 {
   margin-top: 6px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 6vw, 3.8rem);
-  font-weight: 700;
+  font-family: inherit;
+  font-size: clamp(1.9rem, 5vw, 3.35rem);
+  font-weight: 780;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   margin-top: 6px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 5vw, 4.2rem);
-  font-weight: 700;
+  font-family: inherit;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 780;
+  letter-spacing: -0.03em;
 }
 
 h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 7vw, 4.6rem);
+  font-family: inherit;
+  font-size: clamp(2rem, 7vw, 4.2rem);
+  font-weight: 780;
+  letter-spacing: -0.03em;
   overflow-wrap: anywhere;
 }
 
@@ -171,9 +182,9 @@ h3 {
   gap: 12px;
   margin: 18px 0;
   padding: 14px;
-  border: 1px dashed rgba(38, 49, 46, 0.28);
-  border-radius: 8px;
-  background: rgba(251, 252, 255, 0.76);
+  border: 1px solid rgba(37, 36, 32, 0.14);
+  border-radius: var(--radius);
+  background: rgba(246, 248, 245, 0.76);
 }
 
 .album-form label,
@@ -182,17 +193,17 @@ h3 {
   gap: 7px;
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 760;
 }
 
 .album-form input[type="text"] {
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: 10px 12px;
   color: var(--ink);
-  background: #ffffff;
+  background: #fbfcfa;
 }
 
 input[type="color"] {
@@ -200,8 +211,8 @@ input[type="color"] {
   height: 40px;
   padding: 2px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #ffffff;
+  border-radius: var(--radius);
+  background: #fbfcfa;
 }
 
 .hidden {
@@ -221,12 +232,14 @@ input[type="color"] {
   gap: 8px;
   width: 100%;
   padding: 16px 16px 14px 74px;
-  border: 1px solid rgba(38, 49, 46, 0.18);
-  border-radius: 8px;
+  border: 1px solid rgba(37, 36, 32, 0.12);
+  border-radius: var(--radius);
   color: var(--ink);
   text-align: left;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 10px 24px rgba(38, 49, 46, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.08)),
+    rgba(246, 248, 245, 0.74);
+  box-shadow: 0 12px 28px rgba(37, 36, 32, 0.08);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
@@ -235,9 +248,12 @@ input[type="color"] {
   position: absolute;
   inset: 12px auto 12px 14px;
   width: 42px;
-  border-radius: 7px;
-  background: var(--album-color, var(--rose));
-  box-shadow: 5px 0 0 rgba(38, 49, 46, 0.18);
+  border-radius: 5px;
+  background-color: var(--album-color, var(--rose));
+  background:
+    linear-gradient(90deg, rgba(37, 36, 32, 0.3), transparent 20%),
+    color-mix(in srgb, var(--album-color, var(--rose)) 82%, #2c2924);
+  box-shadow: 4px 0 0 rgba(37, 36, 32, 0.12);
 }
 
 .album-tile strong {
@@ -253,8 +269,8 @@ input[type="color"] {
 .album-tile:hover,
 .album-tile.active {
   transform: translateY(-2px);
-  border-color: rgba(38, 49, 46, 0.44);
-  box-shadow: 0 14px 30px rgba(38, 49, 46, 0.14);
+  border-color: rgba(37, 36, 32, 0.32);
+  box-shadow: 0 18px 36px rgba(37, 36, 32, 0.14);
 }
 
 .album-area {
@@ -297,7 +313,7 @@ input[type="color"] {
 .book-pages {
   position: absolute;
   inset: 0;
-  border-radius: 8px;
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
@@ -307,16 +323,36 @@ input[type="color"] {
   align-content: center;
   gap: 18px;
   padding: clamp(24px, 8vw, 70px);
-  color: #1f2b28;
+  color: #f2f4f0;
+  background-color: var(--cover-color);
   background:
-    linear-gradient(90deg, rgba(38, 49, 46, 0.22), transparent 8%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 36%),
-    var(--cover-color);
-  border: 2px solid rgba(38, 49, 46, 0.72);
-  box-shadow: 0 34px 70px rgba(38, 49, 46, 0.2), inset 18px 0 0 rgba(38, 49, 46, 0.14);
+    linear-gradient(90deg, rgba(21, 20, 18, 0.36), transparent 9%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 32%),
+    linear-gradient(0deg, rgba(21, 20, 18, 0.18), rgba(21, 20, 18, 0.18)),
+    color-mix(in srgb, var(--cover-color) 70%, #2d2a25);
+  border: 1px solid rgba(37, 36, 32, 0.62);
+  box-shadow: 0 34px 70px rgba(37, 36, 32, 0.18), inset 16px 0 0 rgba(10, 10, 10, 0.18);
   transform-origin: left center;
   transform: rotateY(0deg);
   transition: transform 760ms cubic-bezier(0.2, 0.8, 0.24, 1), box-shadow 760ms ease;
+}
+
+.book-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px),
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.13), transparent 34%);
+  mix-blend-mode: screen;
+}
+
+.book-cover .eyebrow,
+.book-cover h3,
+.book-cover span {
+  position: relative;
+  z-index: 1;
 }
 
 .book-cover h3 {
@@ -327,10 +363,10 @@ input[type="color"] {
   align-self: end;
   justify-self: start;
   padding: 8px 12px;
-  border: 1px solid rgba(38, 49, 46, 0.32);
-  border-radius: 8px;
-  background: rgba(251, 252, 255, 0.54);
-  font-weight: 800;
+  border: 1px solid rgba(242, 244, 240, 0.34);
+  border-radius: var(--radius);
+  background: rgba(24, 23, 20, 0.28);
+  font-weight: 760;
 }
 
 .cover-band {
@@ -339,7 +375,7 @@ input[type="color"] {
   bottom: 0;
   left: 58px;
   width: 12px;
-  background: rgba(251, 252, 255, 0.34);
+  background: rgba(242, 244, 240, 0.16);
 }
 
 .book-pages {
@@ -350,15 +386,16 @@ input[type="color"] {
   gap: 14px;
   padding: clamp(12px, 2vw, 20px);
   background:
-    linear-gradient(90deg, transparent 49.5%, rgba(38, 49, 46, 0.18) 50%, transparent 50.8%),
+    linear-gradient(90deg, transparent 49.5%, rgba(37, 36, 32, 0.16) 50%, transparent 50.8%),
+    repeating-linear-gradient(0deg, rgba(37, 36, 32, 0.02) 0, rgba(37, 36, 32, 0.02) 1px, transparent 1px, transparent 4px),
     var(--paper);
-  border: 2px solid rgba(38, 49, 46, 0.52);
-  box-shadow: 0 30px 80px rgba(38, 49, 46, 0.18), inset 0 0 34px var(--paper-shadow);
+  border: 1px solid rgba(37, 36, 32, 0.36);
+  box-shadow: 0 30px 80px rgba(37, 36, 32, 0.16), inset 0 0 34px var(--paper-shadow);
 }
 
 .photo-book.open .book-cover {
   transform: rotateY(-118deg);
-  box-shadow: -26px 22px 60px rgba(38, 49, 46, 0.18), inset 18px 0 0 rgba(38, 49, 46, 0.14);
+  box-shadow: -26px 22px 60px rgba(37, 36, 32, 0.16), inset 18px 0 0 rgba(37, 36, 32, 0.14);
   pointer-events: none;
 }
 
@@ -384,8 +421,8 @@ input[type="color"] {
   position: absolute;
   inset: 18px 50% 18px 18px;
   border-radius: 6px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(217, 224, 227, 0.82));
-  box-shadow: 18px 0 28px rgba(38, 49, 46, 0.18);
+  background: linear-gradient(90deg, rgba(242, 244, 240, 0.96), rgba(207, 214, 207, 0.82));
+  box-shadow: 18px 0 28px rgba(37, 36, 32, 0.16);
   transform-origin: right center;
   animation: pageFlip 360ms ease both;
 }
@@ -407,8 +444,8 @@ input[type="color"] {
   margin: 0;
   padding: 10px 10px 46px;
   border-radius: 4px;
-  background: #ffffff;
-  box-shadow: 0 16px 34px rgba(38, 49, 46, 0.18);
+  background: #fbfcfa;
+  box-shadow: 0 16px 34px rgba(37, 36, 32, 0.16);
   transform: rotate(var(--tilt, -2deg));
 }
 
@@ -429,7 +466,7 @@ input[type="color"] {
   min-height: 24px;
   margin-top: 12px;
   color: #4a514c;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: inherit;
   font-size: 1rem;
   text-align: center;
   overflow-wrap: anywhere;
@@ -440,10 +477,10 @@ input[type="color"] {
   justify-self: center;
   max-width: 360px;
   padding: 28px;
-  border: 1px dashed rgba(38, 49, 46, 0.28);
-  border-radius: 8px;
+  border: 1px dashed rgba(37, 36, 32, 0.24);
+  border-radius: var(--radius);
   text-align: center;
-  background: rgba(255, 255, 255, 0.56);
+  background: rgba(251, 252, 250, 0.6);
 }
 
 .empty-page p {
@@ -458,9 +495,9 @@ input[type="color"] {
 .danger-button,
 .text-button {
   min-height: 42px;
-  border-radius: 8px;
-  border: 1px solid rgba(38, 49, 46, 0.24);
-  font-weight: 850;
+  border-radius: var(--radius);
+  border: 1px solid rgba(37, 36, 32, 0.16);
+  font-weight: 760;
 }
 
 .page-turn,
@@ -470,8 +507,8 @@ input[type="color"] {
   width: 44px;
   padding: 0;
   color: var(--ink);
-  background: #ffffff;
-  box-shadow: 0 8px 16px rgba(38, 49, 46, 0.12);
+  background: #fbfcfa;
+  box-shadow: 0 10px 22px rgba(37, 36, 32, 0.1);
 }
 
 .page-turn {
@@ -493,14 +530,14 @@ input[type="color"] {
 }
 
 .primary-button {
-  color: #ffffff;
-  border-color: #2d4c43;
-  background: #3d6659;
+  color: #f2f4f0;
+  border-color: #313d36;
+  background: #3c4a42;
 }
 
 .secondary-button {
   color: var(--ink);
-  background: #ffffff;
+  background: #fbfcfa;
 }
 
 .danger-button {
@@ -512,7 +549,7 @@ input[type="color"] {
 .text-button {
   min-width: auto;
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.64);
+  background: rgba(251, 252, 250, 0.68);
 }
 
 .file-action input {
@@ -532,9 +569,9 @@ input[type="color"] {
   grid-auto-flow: column;
   align-items: center;
   padding: 0 10px;
-  border: 1px solid rgba(38, 49, 46, 0.18);
-  border-radius: 8px;
-  background: rgba(251, 252, 255, 0.68);
+  border: 1px solid rgba(37, 36, 32, 0.14);
+  border-radius: var(--radius);
+  background: rgba(251, 252, 250, 0.68);
 }
 
 @media (max-width: 900px) {
@@ -589,7 +626,7 @@ input[type="color"] {
   .brand-mark {
     width: 34px;
     height: 34px;
-    box-shadow: 3px 3px 0 var(--ink);
+    box-shadow: 0 8px 18px rgba(37, 36, 32, 0.14);
   }
 
   .challenge-strip {
@@ -616,7 +653,7 @@ input[type="color"] {
 
   .album-rail {
     padding: 12px;
-    box-shadow: 0 14px 34px rgba(38, 49, 46, 0.1);
+    box-shadow: 0 14px 34px rgba(37, 36, 32, 0.1);
   }
 
   .rail-heading {
@@ -710,7 +747,7 @@ input[type="color"] {
     transform-origin: top center;
     gap: 12px;
     padding: 26px 24px 24px;
-    box-shadow: 0 20px 48px rgba(38, 49, 46, 0.18), inset 14px 0 0 rgba(38, 49, 46, 0.14);
+    box-shadow: 0 20px 48px rgba(37, 36, 32, 0.18), inset 14px 0 0 rgba(37, 36, 32, 0.14);
   }
 
   .photo-book.open .book-cover {
@@ -727,7 +764,7 @@ input[type="color"] {
     gap: 4px;
     padding: 8px 6px;
     background:
-      linear-gradient(90deg, transparent 49.2%, rgba(38, 49, 46, 0.14) 50%, transparent 51%),
+      linear-gradient(90deg, transparent 49.2%, rgba(37, 36, 32, 0.14) 50%, transparent 51%),
       var(--paper);
   }
 
@@ -747,7 +784,7 @@ input[type="color"] {
   .photo-card {
     width: min(100%, 188px);
     padding: 8px 8px 34px;
-    box-shadow: 0 12px 24px rgba(38, 49, 46, 0.16);
+    box-shadow: 0 12px 24px rgba(37, 36, 32, 0.16);
   }
 
   .photo-card:nth-child(even) {

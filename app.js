@@ -1,6 +1,12 @@
 const STORAGE_KEY = "photogenic.albums.v1";
 const CHALLENGE_KEY = "photogenic.challengeOffset.v1";
 
+const retroColors = {
+  "#d66f6f": "#9c615e",
+  "#6f9a86": "#627e70",
+  "#87a9cf": "#677f99",
+};
+
 const samplePhotos = {
   friends: [
     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80",
@@ -154,7 +160,7 @@ function wireEvents() {
 function loadState() {
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (stored?.albums?.length) return stored;
+    if (stored?.albums?.length) return migrateStoredState(stored);
   } catch {
     localStorage.removeItem(STORAGE_KEY);
   }
@@ -166,26 +172,42 @@ function loadState() {
       {
         id: "friends",
         name: "Friends",
-        color: "#d66f6f",
+        color: "#9c615e",
         createdAt: now,
         photos: samplePhotos.friends.map((src, index) => makePhoto(src, ["After class", "Late sunlight", "Laugh break"][index])),
       },
       {
         id: "holidays",
         name: "Holidays",
-        color: "#6f9a86",
+        color: "#627e70",
         createdAt: now,
         photos: samplePhotos.holidays.map((src, index) => makePhoto(src, ["A slow view", "On the road", "Golden hour"][index])),
       },
       {
         id: "university",
         name: "University",
-        color: "#87a9cf",
+        color: "#677f99",
         createdAt: now,
         photos: samplePhotos.university.map((src, index) => makePhoto(src, ["Library pause", "Campus morning", "Notebook weather"][index])),
       },
     ],
   };
+}
+
+function migrateStoredState(stored) {
+  let changed = false;
+  stored.albums = stored.albums.map((album) => {
+    const color = retroColors[album.color?.toLowerCase()];
+    if (!color) return album;
+    changed = true;
+    return { ...album, color };
+  });
+
+  if (changed) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+  }
+
+  return stored;
 }
 
 function makePhoto(src, caption) {

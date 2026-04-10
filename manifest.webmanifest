@@ -4,8 +4,8 @@
   "description": "Daily photo albums on your own device.",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f3f7f4",
-  "theme_color": "#3d6659",
+  "background_color": "#e9eeeb",
+  "theme_color": "#3c4a42",
   "icons": [
     {
       "src": "icon.svg",
